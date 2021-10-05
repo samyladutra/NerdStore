@@ -10,6 +10,10 @@ namespace NerdStore.Catalogo.Domain
         public string Nome { get; private set; }
         public int Codigo { get; private set; }
 
+        //Utilizado para fins de mapeamento com o EF:
+        public ICollection<Produto> Produtos { get; set; }
+
+        protected Categoria() { }
         public Categoria(string nome, int codigo)
         {
             Nome = nome;
