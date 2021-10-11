@@ -25,6 +25,9 @@ namespace NerdStore.Catalogo.Data
             foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
                 e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
                 property.SetColumnType("varchar(100)");
+
+            modelBuilder.Entity<Produto>().OwnsOne(x => x.Dimensoes);
+
             base.OnModelCreating(modelBuilder);
         }
         public async Task<bool> Commit()
@@ -41,6 +44,7 @@ namespace NerdStore.Catalogo.Data
                     entry.Property("DataCadastro").IsModified = false;
                 }
             }
+
             return await base.SaveChangesAsync() > 0;
         }
     }
