@@ -7,9 +7,9 @@ namespace NerdStore.Catalogo.Domain
 {
     public class Dimensoes
     {
-        public decimal Altura { get; set; }
-        public decimal Largura { get; set; }
-        public decimal Profundidade { get; set; }
+        public decimal Altura { get; private set; }
+        public decimal Largura { get; private set; }
+        public decimal Profundidade { get; private set; }
 
         public Dimensoes(decimal altura, decimal largura, decimal profundidade)
         {

@@ -43,7 +43,8 @@ namespace NerdStore.WebApp.MVC
             services.AddAutoMapper(typeof(DomainToViewModelMappingProfile), typeof(ViewModelToDomainMappingProfile));
 
             services.AddMediatR(typeof(Startup));
-
+            services.AddAuthorization();
+            services.AddControllers();
             services.RegisterServices();
         }
 
@@ -71,7 +72,7 @@ namespace NerdStore.WebApp.MVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Vitrine}/{action=Index}/{id?}");
             });
         }
     }
