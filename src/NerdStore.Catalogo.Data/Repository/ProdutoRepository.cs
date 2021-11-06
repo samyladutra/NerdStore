@@ -40,7 +40,6 @@ namespace NerdStore.Catalogo.Data.Repository
             _context.Categorias.Update(categoria);
         }
 
-
         public void Dispose()
         {
             _context?.Dispose();
