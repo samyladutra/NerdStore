@@ -19,7 +19,7 @@ namespace NerdStore.WebApp.MVC.Setup
         public static void RegisterServices(this IServiceCollection services)
         {
             // Domain Bus (Mediator)
-            services.AddScoped<IMediatrHandler, MediatrHandler>();
+            services.AddScoped<IMediatorHandler, MediatorHandler>();
 
             // Catalogo
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
