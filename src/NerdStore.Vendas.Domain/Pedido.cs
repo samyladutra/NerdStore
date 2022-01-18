@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using FluentValidation.Results;
 namespace NerdStore.Vendas.Domain
 {
     public class Pedido : Entity, IAggregateRoot
@@ -21,6 +21,7 @@ namespace NerdStore.Vendas.Domain
 
         // EF Rel.
         public Voucher Voucher { get; private set; }
+
         public Pedido(Guid clienteId, bool voucherUtilizado, decimal desconto, decimal valorTotal)
         {
             ClienteId = clienteId;
@@ -33,6 +34,18 @@ namespace NerdStore.Vendas.Domain
         protected Pedido()
         {
             _pedidoItems = new List<PedidoItem>();
+        }
+
+        public ValidationResult AplicarVoucher(Voucher voucher)
+        {
+            var validationResult = voucher.ValidarSeAplicavel();
+            if (!validationResult.IsValid) return validationResult;
+
+            Voucher = voucher;
+            VoucherUtilizado = true;
+            CalcularValorPedido();
+
+            return validationResult;
         }
 
         public void CalcularValorPedido()

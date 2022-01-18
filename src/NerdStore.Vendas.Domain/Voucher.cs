@@ -30,7 +30,6 @@ namespace NerdStore.Vendas.Domain
 
     public class VoucherAplicavelValidation : AbstractValidator<Voucher>
     {
-
         public VoucherAplicavelValidation()
         {
             RuleFor(c => c.DataValidade)

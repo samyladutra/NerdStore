@@ -61,10 +61,5 @@ namespace NerdStore.Vendas.Data
             modelBuilder.HasSequence<int>("MinhaSequencia").StartsAt(1000).IncrementsBy(1);
             base.OnModelCreating(modelBuilder);
         }
-
-        Task<bool> IUnitOfWork.Commit()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

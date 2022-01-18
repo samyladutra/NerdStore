@@ -1,11 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NerdStore.Vendas.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace NerdStore.Vendas.Data.Mappings
+namespace NerdStore.Catalogo.Data.Mappings
 {
     public class PedidoMapping : IEntityTypeConfiguration<Pedido>
     {
