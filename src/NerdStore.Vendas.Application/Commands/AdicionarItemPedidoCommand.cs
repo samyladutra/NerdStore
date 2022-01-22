@@ -23,7 +23,8 @@ namespace NerdStore.Vendas.Application.Commands
 
         public override bool EhValido()
         {
-            return base.EhValido();
+            ValidationResult = new AdicionarItemPedidoValidation().Validate(this);
+            return ValidationResult.IsValid;
         }
     }
 
