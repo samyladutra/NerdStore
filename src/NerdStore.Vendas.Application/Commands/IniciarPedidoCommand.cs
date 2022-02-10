@@ -48,9 +48,9 @@ namespace NerdStore.Vendas.Application.Commands
                 .NotEmpty()
                 .WithMessage("O nome no cartão não foi informado");
 
-            RuleFor(c => c.NumeroCartao)
-                .CreditCard()
-                .WithMessage("Número de cartão de crédito inválido");
+            //RuleFor(c => c.NumeroCartao)
+            //    .CreditCard()
+            //    .WithMessage("Número de cartão de crédito inválido");
 
             RuleFor(c => c.ExpiracaoCartao)
                 .NotEmpty()
